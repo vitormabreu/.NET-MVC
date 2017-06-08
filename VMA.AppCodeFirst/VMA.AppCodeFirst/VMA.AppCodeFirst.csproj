@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Auth0\AccountViewModels.cs" />
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Auth0\IdentityModels.cs" />
