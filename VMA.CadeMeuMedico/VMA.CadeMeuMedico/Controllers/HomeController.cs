@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
-    public class TesteLayoutController : Controller
+    public class HomeController : Controller
     {
-        // GET: TesteLayout
+        // GET: Home
         public ActionResult Index()
         {
             return View();
