@@ -148,12 +148,15 @@
     <Compile Include="Models\Cidades.cs">
       <DependentUpon>ModelodeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CidadesMetadado.cs" />
     <Compile Include="Models\Especialidades.cs">
       <DependentUpon>ModelodeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EspecialidadesMetadados.cs" />
     <Compile Include="Models\Medicos.cs">
       <DependentUpon>ModelodeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MedicosMetadado.cs" />
     <Compile Include="Models\ModelodeDados.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +175,7 @@
     <Compile Include="Models\Usuarios.cs">
       <DependentUpon>ModelodeDados.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuariosMetadados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
