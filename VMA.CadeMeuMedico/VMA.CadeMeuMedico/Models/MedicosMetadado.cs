@@ -14,6 +14,8 @@ namespace VMA.CadeMeuMedico.Models
 
     public class MedicosMetadado
     {
+        public long IDMedico { get; set; }
+
         [Required(ErrorMessage = "Obrigatório informar o CRM")]
         [StringLength(30, ErrorMessage = "O CRM deve possuir no máximo 30 caracteres")]
         public string CRM { get; set; }
