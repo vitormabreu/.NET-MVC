@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
@@ -42,6 +43,41 @@ namespace VMA.CadeMeuMedico.Controllers
             ViewBag.Especialidades = new SelectList(db.Especialidades, "Especialidade", "Nome", medico.Especialidades);
 
             return View(medico);
+        }
+
+        //GET: Editar
+        public ActionResult Editar(long id)
+        {
+
+            Medicos medico = db.Medicos.Find(id);
+
+            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medico.IDCidade);
+
+            ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidade", "Nome", medico.IDEspecialidade);
+
+            return View(medico);
+
+        }
+
+        //POST: Editar
+        [HttpPost]
+        public ActionResult Editar(Medicos medico)
+
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(medico).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.IDCidade = new SelectList(db.Cidades, "IDCidade", "Nome", medico.IDCidade);
+
+            ViewBag.IDEspecialidade = new SelectList(db.Especialidades, "IDEspecialidade", "Nome", medico.IDEspecialidade);
+
+            return View(medico);
+
         }
     }
 }
