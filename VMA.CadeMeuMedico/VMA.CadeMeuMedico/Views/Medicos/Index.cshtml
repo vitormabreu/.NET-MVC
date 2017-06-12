@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VMA.CadeMeuMedico.Models.Medicos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listagem de Médicos";
 }
 
 <h2>Index</h2>
@@ -28,13 +28,13 @@
     <tr>
 
         <td>
-            @Html.DisplayFor(modelItem => item)
+            @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Cidades)
+            @Html.DisplayFor(modelItem => item.Cidades.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Especialidades)
+            @Html.DisplayFor(modelItem => item.Especialidades.Nome)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IDMedico }) |

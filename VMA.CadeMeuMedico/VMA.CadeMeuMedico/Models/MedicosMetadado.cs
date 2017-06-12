@@ -17,7 +17,7 @@ namespace VMA.CadeMeuMedico.Models
         public long IDMedico { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o CRM")]
-        [StringLength(30, ErrorMessage = "O CRM deve possuir no máximo 30 caracteres")]
+        [StringLength(11, ErrorMessage = "O CRM deve possuir no máximo 30 caracteres")]
         public string CRM { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o Nome")]
@@ -33,6 +33,7 @@ namespace VMA.CadeMeuMedico.Models
         public string Bairro { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o E-mail")]
+        [EmailAddress]
         [StringLength(100, ErrorMessage = "O E-mail deve possuir no máximo 100 caracteres")]
         public string Email { get; set; }
 
