@@ -62,7 +62,6 @@ namespace VMA.CadeMeuMedico.Controllers
         //POST: Editar
         [HttpPost]
         public ActionResult Editar(Medicos medico)
-
         {
 
             if (ModelState.IsValid)
@@ -78,6 +77,20 @@ namespace VMA.CadeMeuMedico.Controllers
 
             return View(medico);
 
+        }
+
+        //POST Excluir
+        public ActionResult Excluir(long id)
+        {
+
+            Medicos medico = db.Medicos.Find(id);
+            if (medico == null)
+            {
+                return HttpNotFound();
+            }
+            db.Medicos.Remove(medico);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
