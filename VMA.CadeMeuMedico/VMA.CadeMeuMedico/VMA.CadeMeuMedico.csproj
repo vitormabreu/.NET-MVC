@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CidadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +192,11 @@
     <Content Include="Views\Medicos\Adicionar.cshtml" />
     <Content Include="Views\Medicos\Editar.cshtml" />
     <Content Include="Views\Medicos\Detalhes.cshtml" />
+    <Content Include="Views\Cidades\Adicionar.cshtml" />
+    <Content Include="Views\Cidades\Excluir.cshtml" />
+    <Content Include="Views\Cidades\Detalhes.cshtml" />
+    <Content Include="Views\Cidades\Editar.cshtml" />
+    <Content Include="Views\Cidades\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
