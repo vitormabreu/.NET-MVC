@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VMA.CadeMeuMedico.Models;
@@ -20,7 +21,7 @@ namespace VMA.CadeMeuMedico.Controllers
             return View(medicos);
         }
 
-        // GET: Adicionar
+        // GET: Medicos/Adicionar
         public ActionResult Adicionar()
         {
             ViewBag.Cidades = new SelectList(db.Cidades, "Cidade", "Nome");
@@ -28,8 +29,9 @@ namespace VMA.CadeMeuMedico.Controllers
             return View();
         }
 
-        //POST: Adicionar
+        //POST: Medicos/Adicionar
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Adicionar(Medicos medico)
         {
             if (ModelState.IsValid)
@@ -45,7 +47,7 @@ namespace VMA.CadeMeuMedico.Controllers
             return View(medico);
         }
 
-        //GET: Editar
+        //GET: Medicos/Editar
         public ActionResult Editar(long id)
         {
 
@@ -59,7 +61,7 @@ namespace VMA.CadeMeuMedico.Controllers
 
         }
 
-        //POST: Editar
+        //POST: Medicos/Editar
         [HttpPost]
         public ActionResult Editar(Medicos medico)
         {
@@ -79,6 +81,7 @@ namespace VMA.CadeMeuMedico.Controllers
 
         }
 
+        //GET: Medicos/Detalhes
         public ActionResult Detalhes(long? id)
         {
             if (id == null)
@@ -93,18 +96,31 @@ namespace VMA.CadeMeuMedico.Controllers
             return View(medico);
         }
 
-        //GET Excluir
-        public ActionResult Excluir(long id)
+        //GET Medicos/Excluir
+        public ActionResult Excluir(long? id)
         {
-
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Medicos medico = db.Medicos.Find(id);
             if (medico == null)
             {
                 return HttpNotFound();
             }
+            return View(medico);
+        }
+
+        //POST: Medicos/Excluir
+        [HttpPost, ActionName("Excluir")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmaEsclusao(int id)
+        {
+            Medicos medico = db.Medicos.Find(id);
             db.Medicos.Remove(medico);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }
