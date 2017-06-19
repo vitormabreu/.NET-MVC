@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Cidades</h4>
+        <h4>@Html.DisplayFor(model => model.Nome)</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IDCidade)
@@ -33,5 +33,5 @@
 }
 
 <div>
-    @Html.ActionLink("Voltar para lista", "Index", null, new { @class = "btn btn-default"})
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default"})
 </div>

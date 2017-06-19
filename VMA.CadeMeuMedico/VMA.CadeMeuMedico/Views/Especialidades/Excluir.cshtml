@@ -1,4 +1,4 @@
-﻿@model VMA.CadeMeuMedico.Models.Cidades
+﻿@model VMA.CadeMeuMedico.Models.Especialidades
 
 @{
     ViewBag.Title = "Excluir";
@@ -7,9 +7,7 @@
 <h2>Excluir</h2>
 
 <h3>
-    Tem certeza que deseja detelar a cidade
-    @Html.DisplayFor(model => model.Nome)
-    ?
+    Tem certeza que deseja detelar a especialidade @Html.DisplayFor(model => model.Nome) ?
 </h3>
 <div>
     <hr />
@@ -29,7 +27,7 @@
 
         <div class="form-actions no-color">
             @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-default"}) 
-            <input type="submit" value="Excluir" class="btn btn-danger"/>
+            <input type="submit" value="Excluir" class="btn btn-danger" />
         </div>
     }
 </div>

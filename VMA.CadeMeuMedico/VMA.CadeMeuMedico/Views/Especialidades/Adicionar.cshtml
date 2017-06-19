@@ -1,4 +1,4 @@
-﻿@model VMA.CadeMeuMedico.Models.Cidades
+﻿@model VMA.CadeMeuMedico.Models.Especialidades
 
 @{
     ViewBag.Title = "Adicionar";
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Cidade</h4>
+        <h4>Especialidade</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -31,5 +31,5 @@
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-default"})
 </div>
