@@ -8,7 +8,7 @@
 
 <p>
     @*@Html.ActionLink("Adicionar nova cidade", "Adicionar", null, new { @class = "btn btn-success" })*@
-    
+
     <a href="@Url.Action("Adicionar")" class="btn btn-success" title="Adicionar">
         <i class="fa fa-plus"></i> Nova cidade
     </a>
@@ -22,31 +22,32 @@
         <th>Ações</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            
-            <a href="@Url.Action("Editar",  new { id = item.IDCidade })" class="btn btn-primary" title="Editar">
-                <i class="fa fa-pencil-square-o"></i>
-            </a>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
 
-            <a href="@Url.Action("Detalhes",  new { id = item.IDCidade })" class="btn btn-default" title="Detalhes">
-                <i class="fa fa-search-plus"></i>
-            </a>
+                @*<a href="@Url.Action("Editar",  new { id = item.IDCidade })" class="btn btn-primary" title="Editar">
+                    Editar <i class="fa fa-pencil-square-o"></i>
+                </a>
 
-            <a href="@Url.Action("Excluir",  new { id = item.IDCidade })" class="btn btn-danger" title="Excluir">
-                <i class="fa fa-times"></i>
-            </a>
+                <a href="@Url.Action("Detalhes",  new { id = item.IDCidade })" class="btn btn-default" title="Detalhes">
+                    Detalhes <i class="fa fa-search-plus"></i>
+                </a>
 
-            @*@Html.ActionLink("Editar", "Editar", new {id = item.IDCidade}, new {@class = "btn btn-primary"})
+                <a href="@Url.Action("Excluir",  new { id = item.IDCidade })" class="btn btn-danger" title="Excluir">
+                    Excluir <i class="fa fa-times"></i>
+                </a>*@
 
-            @Html.ActionLink("Detalhes", "Detalhes", new {id = item.IDCidade}, new {@class = "btn btn-default"})
-            @Html.ActionLink("Excluir", "Excluir", new {id = item.IDCidade}, new {@class = "btn btn-danger"})*@
-        </td>
-    </tr>
-}
+                @Html.ActionLink("Editar", "Editar", new {id = item.IDCidade}, new {@class = "btn btn-default"})
+
+                    @Html.ActionLink("Detalhes", "Detalhes", new {id = item.IDCidade}, new {@class = "btn btn-default"})
+                    @Html.ActionLink("Excluir", "Excluir", new {id = item.IDCidade}, new {@class = "btn btn-danger"})
+            </td>
+        </tr>
+    }
 
 </table>
