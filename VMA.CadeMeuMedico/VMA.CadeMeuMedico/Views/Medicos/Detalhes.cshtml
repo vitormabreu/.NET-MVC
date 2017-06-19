@@ -7,7 +7,7 @@
 <h2>Detalhes</h2>
 
 <div>
-    <h4>Medicos</h4>
+    <h4>Dr. @Html.DisplayFor(model => model.Nome)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -93,6 +93,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.IDMedico }) |
-    @Html.ActionLink("Voltar para lista", "Index")
+    @Html.ActionLink("Voltar para lista", "Index", null, new {@class = "btn btn-default"}) | 
+    @Html.ActionLink("Editar", "Editar", new {id = Model.IDMedico}, new {@class = "btn btn-primary"})
 </p>
