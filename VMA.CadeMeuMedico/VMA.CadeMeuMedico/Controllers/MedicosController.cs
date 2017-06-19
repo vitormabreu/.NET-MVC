@@ -79,7 +79,21 @@ namespace VMA.CadeMeuMedico.Controllers
 
         }
 
-        //POST Excluir
+        public ActionResult Detalhes(long? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Medicos medico = db.Medicos.Find(id);
+            if (medico == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medico);
+        }
+
+        //GET Excluir
         public ActionResult Excluir(long id)
         {
 
