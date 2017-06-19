@@ -4,17 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Cidades</h2>
 
 <p>
-    @Html.ActionLink("Adicionar nova cidade", "Adicionar")
+    @*@Html.ActionLink("Adicionar nova cidade", "Adicionar", null, new { @class = "btn btn-success" })*@
+    
+    <a href="@Url.Action("Adicionar")" class="btn btn-success" title="Adicionar">
+        <i class="fa fa-plus"></i> Nova cidade
+    </a>
+
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
-        <th></th>
+        <th>Ações</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -23,9 +28,23 @@
             @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.IDCidade }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.IDCidade }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.IDCidade })
+            
+            <a href="@Url.Action("Editar",  new { id = item.IDCidade })" class="btn btn-primary" title="Editar">
+                <i class="fa fa-pencil-square-o"></i>
+            </a>
+
+            <a href="@Url.Action("Detalhes",  new { id = item.IDCidade })" class="btn btn-default" title="Detalhes">
+                <i class="fa fa-search-plus"></i>
+            </a>
+
+            <a href="@Url.Action("Excluir",  new { id = item.IDCidade })" class="btn btn-danger" title="Excluir">
+                <i class="fa fa-times"></i>
+            </a>
+
+            @*@Html.ActionLink("Editar", "Editar", new {id = item.IDCidade}, new {@class = "btn btn-primary"})
+
+            @Html.ActionLink("Detalhes", "Detalhes", new {id = item.IDCidade}, new {@class = "btn btn-default"})
+            @Html.ActionLink("Excluir", "Excluir", new {id = item.IDCidade}, new {@class = "btn btn-danger"})*@
         </td>
     </tr>
 }
