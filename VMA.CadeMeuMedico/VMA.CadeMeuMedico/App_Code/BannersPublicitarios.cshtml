@@ -5,10 +5,10 @@
 var bd = new VMA.CadeMeuMedico.Models.CadeMeuMedicoBDEntities();
 var banners = bd.BannersPublicitarios.OrderByDescending(b => b.IDBanner).Take(3);
 
-    <div style="width:100%; text-align:center; border:1px solid #efefef; padding:10px; display: flex;">
+    <div style="width:100%; text-align:left; border:1px solid #efefef; padding:10px; display:inline-block;">
         @foreach (var b in banners)
         {
-            <div style="width:125px; height:125px; margin-right:10px;">
+            <div style="width:125px; height:125px; float:left; margin-right:10px;">
                 <a href="@b.LinkBanner">
                     <img src="~/Uploads/Banners/@b.BannerCampanha" title="@b.TituloCampanha" />
                 </a>
