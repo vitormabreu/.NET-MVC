@@ -43,9 +43,24 @@
                 @Html.DisplayFor(modelItem => item.Especialidades.Nome)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Editar", new { id = item.IDMedico }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.IDMedico }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.IDMedico }, new { @class = "btn btn-danger" })
+                <div class="hidden-xs">
+                    @Html.ActionLink("Editar", "Editar", new { id = item.IDMedico }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.IDMedico }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Excluir", "Excluir", new { id = item.IDMedico }, new { @class = "btn btn-danger" })
+                </div>
+                <div class="visible-xs">
+                    <a href="@Url.Action("Editar",  new { id = item.IDMedico })" class="btn btn-primary" title="Editar">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+
+                    <a href="@Url.Action("Detalhes",  new { id = item.IDMedico })" class="btn btn-default" title="Detalhes">
+                        <i class="fa fa-search-plus"></i>
+                    </a>
+
+                    <a href="@Url.Action("Excluir",  new { id = item.IDMedico })" class="btn btn-danger" title="Excluir">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
             </td>
         </tr>
     }
