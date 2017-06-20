@@ -128,6 +128,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Code\BannersPublicitarios.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Models\ModelodeDados.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -145,6 +146,9 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Uploads\Banners\banner-cdc-cademeumedico.png" />
+    <Content Include="Uploads\Banners\logo-bee-cademeumedico.jpg" />
+    <Content Include="Uploads\Banners\logo-lakes-cademeumedico.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +159,10 @@
     <Compile Include="Controllers\MedicosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BannersPublicitarios.cs">
+      <DependentUpon>ModelodeDados.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cidades.cs">
       <DependentUpon>ModelodeDados.tt</DependentUpon>
