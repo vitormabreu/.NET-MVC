@@ -17,8 +17,8 @@ namespace VMA.CadeMeuMedico.Repositorios
             {
                 using (CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities())
                 {
-                    var QueryAutenticaUsuarios = db.Usuarios
-                        .SingleOrDefault(x => x.Login == Login && x.Senha == Senha);
+                    var QueryAutenticaUsuarios = db.Usuarios.SingleOrDefault
+                        (x => x.Login == Login && x.Senha == SenhaCriptografada);
 
                     if (QueryAutenticaUsuarios == null)
                     {
@@ -35,7 +35,39 @@ namespace VMA.CadeMeuMedico.Repositorios
             {
                 return false;
             }
+        }
 
+        public static Usuarios RecuperaUsuariosPorID(long IDUsuario)
+        {
+            try
+            {
+                using (CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities())
+                {
+                    var Usuario = db.Usuarios.SingleOrDefault(u => u.IDUsuario == IDUsuario);
+                    return Usuario;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static Usuarios VerificaSeUsuarioLogado()
+        {
+            var Usuario = HttpContext.Current.Request.Cookies["UserCookieAutentication"];
+            if (Usuario == null)
+            {
+                return null;
+            }
+            else
+            {
+                long IDUsuario = Convert.ToInt64
+                    (RepositorioCriptografia.Descriptografar(Usuario.Values["IDUsuario"]));
+
+                var UsuarioRetornado = RecuperaUsuariosPorID(IDUsuario);
+                return UsuarioRetornado;
+            }
         }
     }
 }

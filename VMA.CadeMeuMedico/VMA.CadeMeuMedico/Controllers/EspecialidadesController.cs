@@ -10,7 +10,7 @@ using VMA.CadeMeuMedico.Models;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
-    public class EspecialidadesController : Controller
+    public class EspecialidadesController : BaseController
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
 

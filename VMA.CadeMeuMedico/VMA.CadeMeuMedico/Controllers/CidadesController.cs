@@ -10,7 +10,7 @@ using VMA.CadeMeuMedico.Models;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
-    public class CidadesController : Controller
+    public class CidadesController : BaseController
     {
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
 

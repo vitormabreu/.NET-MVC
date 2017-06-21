@@ -7,11 +7,13 @@
             dataType: "json",
             type: "GET",
             async: true,
-            beforeSend: function () {
+            beforeSend: function ()
+            {
                 $("#status").html("Estamos autenticando o usuário. Só um instante...");
                 $("#status").show();
             },
-            success: function (dados) {
+            success: function (dados)
+            {
                 if (dados.OK) {
                     $("#status").html(dados.Mensagem)
                     setTimeout(function () { window.location.href = "/Home/Index" }, 5000);
@@ -22,9 +24,10 @@
                     $("#status").show();
                 }
             },
-            error: function () {
+            error: function ()
+            {
                 $("#status").html(dados.Mensagem);
-                $("#status").show()
+                $("#status").show();
             }
         });
     });

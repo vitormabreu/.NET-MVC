@@ -7,7 +7,7 @@ using VMA.CadeMeuMedico.Repositorios;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : BaseController
     {
         // GET: Usuarios
         [HttpGet]
