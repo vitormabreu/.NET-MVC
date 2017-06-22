@@ -11,17 +11,16 @@ namespace VMA.CadeMeuMedico.Filtros
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class AutorizacaoDeAcesso : ActionFilterAttribute
     {
-        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        public override void OnActionExecuting(ActionExecutingContext FiltroDeContexto)
         {
-            var Controller = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
-            var Action = filterContext.ActionDescriptor.ActionName;
+            var Controller = FiltroDeContexto.ActionDescriptor.ControllerDescriptor.ControllerName;
+            var Action = FiltroDeContexto.ActionDescriptor.ActionName;
 
             if (Controller != "Home" || Action != "Login")
             {
                 if (RepositorioUsuarios.VerificaSeUsuarioLogado() == null)
                 {
-                    filterContext.RequestContext.HttpContext.Response.Redirect
-                        ("/Home/Login?Url=" + filterContext.HttpContext.Request.Url.LocalPath);
+                    FiltroDeContexto.RequestContext.HttpContext.Response.Redirect("/Home/Login?Url=" + FiltroDeContexto.HttpContext.Request.Url.LocalPath);
                 }
             }
         }
