@@ -55,7 +55,7 @@ namespace VMA.CadeMeuMedico.Repositorios
 
         public static Usuarios VerificaSeUsuarioLogado()
         {
-            var Usuario = HttpContext.Current.Request.Cookies["UserCookieAutentication"];
+            var Usuario = HttpContext.Current.Request.Cookies["UserCookieAuthentication"];
             if (Usuario == null)
             {
                 return null;
