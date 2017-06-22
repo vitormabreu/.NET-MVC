@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VMA.CadeMeuMedico.Models;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
@@ -11,6 +12,10 @@ namespace VMA.CadeMeuMedico.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            IEnumerable<Medicos> listMedicos = null;
+            IEnumerable<Cidades> listCidades = null;
+            IEnumerable<Especialidades> listEspecialidadeses = null;
+
             return View();
         }
 

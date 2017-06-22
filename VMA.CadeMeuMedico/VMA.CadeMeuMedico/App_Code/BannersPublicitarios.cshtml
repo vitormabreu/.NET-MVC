@@ -2,13 +2,13 @@
 
 @helper RetornaDoisBannersMaisRecentes()
 {
-var bd = new VMA.CadeMeuMedico.Models.CadeMeuMedicoBDEntities();
-var banners = bd.BannersPublicitarios.OrderByDescending(b => b.IDBanner).Take(3);
+var bd = new CadeMeuMedicoBDEntities();
+var banners = bd.BannersPublicitarios.OrderByDescending(b => b.IDBanner).Take(1);
 
-    <div style="width:100%; text-align:left; border:1px solid #efefef; padding:10px; display:inline-block;">
+    <div class="row text-center col-md-12">
         @foreach (var b in banners)
         {
-            <div style="width:125px; height:125px; float:left; margin-right:10px;">
+            <div>
                 <a href="@b.LinkBanner">
                     <img src="~/Uploads/Banners/@b.BannerCampanha" title="@b.TituloCampanha" />
                 </a>

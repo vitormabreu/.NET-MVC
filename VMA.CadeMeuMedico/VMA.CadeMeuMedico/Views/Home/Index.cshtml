@@ -1,8 +1,30 @@
-﻿
+﻿@model IEnumerable<VMA.CadeMeuMedico.Models.Medicos>
 @{
     ViewBag.Title = "Index";
 }
 
 @BannersPublicitarios.RetornaDoisBannersMaisRecentes()
 
-<h2>Home</h2>
+<h2>Médicos disponíveis</h2>
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidades)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidades)
+            </th>
+        </tr>
+        @{
+            foreach (var item in Model)
+            {
+  
+            }
+        }
+    </table>
+</div>

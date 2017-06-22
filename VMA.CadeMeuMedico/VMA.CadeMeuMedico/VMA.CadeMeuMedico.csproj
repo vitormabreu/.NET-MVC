@@ -148,6 +148,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\login.home.js" />
     <Content Include="Uploads\Banners\banner-cdc-cademeumedico.png" />
+    <Content Include="Uploads\Banners\banner.png" />
     <Content Include="Uploads\Banners\logo-bee-cademeumedico.jpg" />
     <Content Include="Uploads\Banners\logo-lakes-cademeumedico.png" />
     <Content Include="Web.config" />
