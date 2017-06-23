@@ -7,37 +7,71 @@
 
 <h2>Médicos disponíveis</h2>
 
-<div>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidades)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Especialidades)
-            </th>
-        </tr>
-        @if (Model != null)
-        {
-            foreach (var item in Model)
-             {
-                 <tr>
+<div class="container">
 
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Nome)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Cidades.Nome)
-                     </td>
-                     <td>
-                         @Html.DisplayFor(modelItem => item.Especialidades.Nome)
-                     </td>
+    <div class="row">
+        <div id="table_medicos">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cidades)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Especialidades)
+                    </th>
+                </tr>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
 
-                 </tr>
-             }
-        }
-    </table>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cidades.Nome)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Especialidades.Nome)
+                            </td>
+
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+
+    <hr />
+
+    <h2>Pesquisar médicos</h2>
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="curso" class="col-md-2 control-label">Curso:</label>
+                <div class="col-md-8">
+                    @if (ViewBag.Especialidades != null)
+                    {
+                        @Html.DropDownList("IDCidade", (IEnumerable<SelectListItem>)ViewBag.Cidades, "Selecione uma cidade", new { @class = "form-control" })
+                    }
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="disciplina" class="col-md-2 control-label">Disciplina:</label>
+                <div class="col-md-8">
+                    @if (ViewBag.Especialidades != null)
+                    {
+                        @Html.DropDownList("IDEspecialidade", (IEnumerable<SelectListItem>)ViewBag.Especialidades, "Selecione uma especialidade", new { @class = "form-control" })
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>

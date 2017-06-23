@@ -12,9 +12,29 @@ namespace VMA.CadeMeuMedico.Controllers
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
 
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(int? idCidade, int? idEspecialidade)
         {
             IEnumerable<Medicos> listMedicos = db.Medicos.ToList();
+            IEnumerable<Cidades> listCidades = db.Cidades.ToList();
+            IEnumerable<Especialidades> listEspecialidades = db.Especialidades.ToList();
+
+            //ViewBag.Cidades = listCidades;
+            //ViewBag.Especialidades = listEspecialidades;
+
+            ViewBag.Cidades = listCidades.Select(c => new SelectListItem
+            {
+                Value = c.IDCidade.ToString(),
+                Text = c.Nome,
+                Selected = (c.IDCidade == idCidade)
+            });
+
+            ViewBag.Especialidades = listEspecialidades.Select(e => new SelectListItem
+            {
+                Value = e.IDEspecialidade.ToString(),
+                Text = e.Nome,
+                Selected = (e.IDEspecialidade == idEspecialidade)
+            });
+
 
             return View(listMedicos);
         }
