@@ -5,9 +5,10 @@
 
 @BannersPublicitarios.RetornaDoisBannersMaisRecentes()
 
-<h2>Médicos disponíveis</h2>
 
 <div class="container">
+    
+    @*<h2>Médicos disponíveis</h2>
 
     <div class="row">
         <div id="table_medicos">
@@ -46,13 +47,13 @@
         </div>
     </div>
 
-    <hr />
+    <hr />*@
 
     <h2>Pesquisar médicos</h2>
     <div class="row">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="curso" class="col-md-2 control-label">Curso:</label>
+                <label for="cidade" class="col-md-2 control-label">Cidade:</label>
                 <div class="col-md-8">
                     @if (ViewBag.Especialidades != null)
                     {
@@ -63,7 +64,7 @@
 
 
             <div class="form-group">
-                <label for="disciplina" class="col-md-2 control-label">Disciplina:</label>
+                <label for="especialidade" class="col-md-2 control-label">Especialidade:</label>
                 <div class="col-md-8">
                     @if (ViewBag.Especialidades != null)
                     {
@@ -75,3 +76,17 @@
     </div>
 
 </div>
+@section script{
+    <script>
+        
+        $(document).ready(() => {
+
+            $('#IDCidade').change(() => {
+                var IDCidade = $('#IDCidade').val();
+                $('#IDEspecialidade').empty;
+            });
+
+        })
+
+    </script>
+}

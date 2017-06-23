@@ -15,11 +15,11 @@ namespace VMA.CadeMeuMedico.Controllers
         public ActionResult Index(int? idCidade, int? idEspecialidade)
         {
             IEnumerable<Medicos> listMedicos = db.Medicos.ToList();
+            //IEnumerable<Cidades> listCidades = new List<Cidades>();
+            IEnumerable<Especialidades> listEspecialidades = new List<Especialidades>();
+            
             IEnumerable<Cidades> listCidades = db.Cidades.ToList();
-            IEnumerable<Especialidades> listEspecialidades = db.Especialidades.ToList();
-
-            //ViewBag.Cidades = listCidades;
-            //ViewBag.Especialidades = listEspecialidades;
+            //IEnumerable<Especialidades> listEspecialidades = db.Especialidades.ToList();
 
             ViewBag.Cidades = listCidades.Select(c => new SelectListItem
             {
@@ -37,6 +37,18 @@ namespace VMA.CadeMeuMedico.Controllers
 
 
             return View(listMedicos);
+        }
+
+        //public JsonResult ListarCidades(int idCidade)
+        //{
+        //    var cidades = db.Cidades.ToList();
+        //    return Json(new {Cidades = cidades}, JsonRequestBehavior.AllowGet);
+        //}
+
+        public JsonResult ListarEspecialidades(int idEspecialidade)
+        {
+            var especialidades = db.Especialidades.ToList();
+            return Json(new {Especialidades = especialidades}, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Login()
