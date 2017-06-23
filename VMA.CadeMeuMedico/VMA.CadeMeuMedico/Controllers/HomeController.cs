@@ -9,14 +9,14 @@ namespace VMA.CadeMeuMedico.Controllers
 {
     public class HomeController : Controller
     {
+        private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
+
         // GET: Home
         public ActionResult Index()
         {
-            IEnumerable<Medicos> listMedicos = null;
-            IEnumerable<Cidades> listCidades = null;
-            IEnumerable<Especialidades> listEspecialidadeses = null;
+            IEnumerable<Medicos> listMedicos = db.Medicos.ToList();
 
-            return View();
+            return View(listMedicos);
         }
 
         public ActionResult Login()

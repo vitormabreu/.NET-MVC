@@ -20,11 +20,24 @@
                 @Html.DisplayNameFor(model => model.Especialidades)
             </th>
         </tr>
-        @{
+        @if (Model != null)
+        {
             foreach (var item in Model)
-            {
-  
-            }
+             {
+                 <tr>
+
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Nome)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Cidades.Nome)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => item.Especialidades.Nome)
+                     </td>
+
+                 </tr>
+             }
         }
     </table>
 </div>
