@@ -45,9 +45,10 @@ namespace VMA.CadeMeuMedico.Controllers
         //    return Json(new {Cidades = cidades}, JsonRequestBehavior.AllowGet);
         //}
 
-        public JsonResult ListarEspecialidades(int idEspecialidade)
+        public JsonResult ListarEspecialidades(int idEspecialidade, int idCidade)
         {
-            var especialidades = db.Especialidades.ToList();
+            var especialidades = db.Especialidades.ToList().
+                Where(e => e.IDEspecialidade == idEspecialidade);
             return Json(new {Especialidades = especialidades}, JsonRequestBehavior.AllowGet);
         }
 

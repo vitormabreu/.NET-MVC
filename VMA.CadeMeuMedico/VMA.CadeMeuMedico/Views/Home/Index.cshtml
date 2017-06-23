@@ -7,47 +7,47 @@
 
 
 <div class="container">
-    
+
     @*<h2>Médicos disponíveis</h2>
 
-    <div class="row">
-        <div id="table_medicos">
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nome)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Cidades)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Especialidades)
-                    </th>
-                </tr>
-                @if (Model != null)
-                {
-                    foreach (var item in Model)
+        <div class="row">
+            <div id="table_medicos">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nome)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cidades)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Especialidades)
+                        </th>
+                    </tr>
+                    @if (Model != null)
                     {
-                        <tr>
+                        foreach (var item in Model)
+                        {
+                            <tr>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Cidades.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Especialidades.Nome)
-                            </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cidades.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Especialidades.Nome)
+                                </td>
 
-                        </tr>
+                            </tr>
+                        }
                     }
-                }
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <hr />*@
+        <hr />*@
 
     <h2>Pesquisar médicos</h2>
     <div class="row">
@@ -78,7 +78,7 @@
 </div>
 @section script{
     <script>
-        
+
         $(document).ready(() => {
 
             $('#IDCidade').change(() => {
@@ -86,6 +86,27 @@
                 $('#IDEspecialidade').empty;
             });
 
+            $.get('@Url.Action("ListarEspecialidades")', { "idEspecialidade": IDEspecialidade },
+                (data, status, jqXHR) => {
+                    var especialidades = data.Especialidades;
+                    $('#IDEspecialidade').append($('<option>',
+                        {
+                            value: null,
+                            text: "Selecione uma especialidade"
+                        }));
+                    especialidades.forEach(e => {
+                        $('#IDEspecialidade').append($('<option>',
+                            {
+                                value: e.IDEspecialidade,
+                                text: e.Nome
+                            }));
+                    });
+                }
+            ).fail(
+            () => {
+                console.log('Erro');
+            }
+            );
         })
 
     </script>
