@@ -79,14 +79,14 @@
 @section script{
     <script>
 
-        $(document).ready(() => {
+        @*$(document).ready(() => {
 
             $('#IDCidade').change(() => {
                 var IDCidade = $('#IDCidade').val();
                 $('#IDEspecialidade').empty;
             });
 
-            $.get('@Url.Action("ListarEspecialidades")', { "idEspecialidade": IDEspecialidade },
+            $.get('@Url.Action("ListarEspecialidades")', { "IdCidade": IDCidade },
                 (data, status, jqXHR) => {
                     var especialidades = data.Especialidades;
                     $('#IDEspecialidade').append($('<option>',
@@ -107,7 +107,7 @@
                 console.log('Erro');
             }
             );
-        })
+        })*@
 
     </script>
 }

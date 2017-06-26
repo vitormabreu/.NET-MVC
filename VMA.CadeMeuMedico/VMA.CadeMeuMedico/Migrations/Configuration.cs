@@ -1,18 +1,16 @@
+using System.Data.Entity.Migrations;
+using VMA.CadeMeuMedico.Models;
+
 namespace VMA.CadeMeuMedico.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<VMA.CadeMeuMedico.Models.CadeMeuMedicoBDEntities>
+    internal sealed class Configuration : DbMigrationsConfiguration<CadeMeuMedicoBDEntities>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(VMA.CadeMeuMedico.Models.CadeMeuMedicoBDEntities context)
+        protected override void Seed(CadeMeuMedicoBDEntities context)
         {
             //  This method will be called after migrating to the latest version.
 
