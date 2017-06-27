@@ -34,4 +34,6 @@ E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\bin\Syst
 E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\bin\System.Web.Mvc.xml
 E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\obj\Debug\VMA.CadeMeuMedico.dll
 E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\obj\Debug\VMA.CadeMeuMedico.pdb
+E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\bin\Dapper.dll
+E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\bin\Dapper.xml
 E:\Vitor-Projects\Livro ASP.NET MVC\VMA.CadeMeuMedico\VMA.CadeMeuMedico\obj\Debug\VMA.CadeMeuMedico.csprojResolveAssemblyReference.cache

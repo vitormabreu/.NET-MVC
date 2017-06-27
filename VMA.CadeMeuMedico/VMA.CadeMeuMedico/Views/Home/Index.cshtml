@@ -57,7 +57,7 @@
                 <div class="col-md-8">
                     @if (ViewBag.Especialidades != null)
                     {
-                        @Html.DropDownList("IDCidade", (IEnumerable<SelectListItem>)ViewBag.Cidades, "Selecione uma cidade", new { @class = "form-control" })
+                        @Html.DropDownList("idCidade", (IEnumerable<SelectListItem>)ViewBag.Cidades, "Selecione uma cidade", new { @class = "form-control" })
                     }
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="col-md-8">
                     @if (ViewBag.Especialidades != null)
                     {
-                        @Html.DropDownList("IDEspecialidade", (IEnumerable<SelectListItem>)ViewBag.Especialidades, "Selecione uma especialidade", new { @class = "form-control" })
+                        @Html.DropDownList("idEspecialidade", (IEnumerable<SelectListItem>)ViewBag.Especialidades, "Selecione uma especialidade", new { @class = "form-control" })
                     }
                 </div>
             </div>
@@ -79,35 +79,37 @@
 @section script{
     <script>
 
-        @*$(document).ready(() => {
+        $(document).ready(() => {
 
-            $('#IDCidade').change(() => {
-                var IDCidade = $('#IDCidade').val();
-                $('#IDEspecialidade').empty;
-            });
+            $('#idCidade').change(() => {
+                var idCidade = $('#idCidade').val();
 
-            $.get('@Url.Action("ListarEspecialidades")', { "IdCidade": IDCidade },
-                (data, status, jqXHR) => {
-                    var especialidades = data.Especialidades;
-                    $('#IDEspecialidade').append($('<option>',
-                        {
-                            value: null,
-                            text: "Selecione uma especialidade"
-                        }));
-                    especialidades.forEach(e => {
-                        $('#IDEspecialidade').append($('<option>',
+                $('#idEspecialidade').empty();
+
+
+                $.get('@Url.Action("ListarEspecialidades")', { "idCidade": idCidade },
+                    (data, status, jqXHR) => {
+                        var especialidades = data.Especialidades;
+                        $('#idEspecialidade').append($('<option>',
                             {
-                                value: e.IDEspecialidade,
-                                text: e.Nome
+                                value: null,
+                                text: "Selecione uma especialidade"
                             }));
-                    });
+                        especialidades.forEach(e => {
+                            $('#idEspecialidade').append($('<option>',
+                                {
+                                    value: e.idEspecialidade,
+                                    text: e.Nome
+                                }));
+                        });
+                    }
+                ).fail(
+                () => {
+                    console.log('Erro');
                 }
-            ).fail(
-            () => {
-                console.log('Erro');
-            }
-            );
-        })*@
+                );
+            })
+        })
 
     </script>
 }

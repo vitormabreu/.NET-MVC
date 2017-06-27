@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VMA.CadeMeuMedico.AppService;
 using VMA.CadeMeuMedico.Models;
 
 namespace VMA.CadeMeuMedico.Controllers
 {
     public class HomeController : Controller
     {
+        private CadeMeuMedicoAppService appService = new CadeMeuMedicoAppService(new CadeMeuMedicoBDEntities());
         private CadeMeuMedicoBDEntities db = new CadeMeuMedicoBDEntities();
 
         // GET: Home
@@ -42,9 +44,9 @@ namespace VMA.CadeMeuMedico.Controllers
         //    return Json(new {Cidades = cidades}, JsonRequestBehavior.AllowGet);
         //}
 
-        public JsonResult ListarEspecialidades(int idEspecialidade, int idCidade)
+        public JsonResult ListarEspecialidades(int idCidade)
         {
-            var especialidades = db.Especialidades.ToList();
+            var especialidades = appService.ListarEspecialidadePorCidade(idCidade);
             return Json(new {Especialidades = especialidades}, JsonRequestBehavior.AllowGet);
         }
 
